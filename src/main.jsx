@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import {BrowerRouter, Routes, Route} from 'react-router-dom'
 import App from './App'
 import './index.css'
+import {Home} from "./Pages/Home"
+import {Movie} from "./Pages/Movie"
+import { Search } from "./Pages/Search"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
