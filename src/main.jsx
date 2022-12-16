@@ -5,7 +5,7 @@ import App from './App'
 import './index.css'
 import Home from "./Pages/Home"
 import Movie from "./Pages/Movie"
-import  Search  from "./Pages/Search"
+import Search  from "./Pages/Search"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

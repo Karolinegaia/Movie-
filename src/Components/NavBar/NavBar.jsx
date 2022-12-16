@@ -19,7 +19,7 @@ export function NavBar() {
 
 
   return (
-    <nav id="navbar">
+    <nav id="NavBar">
       <h2>
         <Link to="/">
           <BiCameraMovie /> MoviesLib
