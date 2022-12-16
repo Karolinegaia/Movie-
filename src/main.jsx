@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import App from './App'
 import './index.css'
 import Home from "./Pages/Home"
-import {Movie} from "./Pages/Movie"
+import Movie from "./Pages/Movie"
 import  Search  from "./Pages/Search"
 
 

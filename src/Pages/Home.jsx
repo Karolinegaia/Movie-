@@ -1,39 +1,36 @@
-import { useState, UseEffect } from "react"
+import { useState, useEffect } from "react"
 import MovieCard from "../Components/MovieCard"
 import "../Style/MovieGrid.css"
 
-const movieURL = import.meta.env.VITE_API;
+const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-
 const Home = () => {
-    const [TopMovies, setTopMovies] = useState([])
-    const getTopRatedMovies = async (url) => {
-        const res = await fetch(url);
-        const data = await res.json
+  const [topMovies, setTopMovies] = useState([]);
 
-        setTopMovies(data.results);
-    };
-    UseEffect(()=> {
-        const topRateUrl = `${movieURL}top_rated?${apiKey}`;
-        getTopRatedMovies(topRateUrl);
+  const getTopRatedMovies = async (URL) => {
+    const res = await fetch(URL);
+    const data = await res.json();
+    setTopMovies(data.results);
+  };
 
-    }, [])
-    
-    return (
-        <div className="container">
-            <h2 className="title">
-                Melhores Filmes            
-            </h2>
-            <div className="div-container">
-                {TopMovies.length === 0 && <p>Carregando</p> }
-                {TopMovies.length > 0 && TopMovies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
-            </div>
-        </div>
-    )
-        
-    
-   
-}
+  useEffect(() => {
+    const topRatedUrl = `${moviesURL}top_rated?${apiKey}`;
+    console.log(topRatedUrl);
+    getTopRatedMovies(topRatedUrl);
+  }, []);
+
+  console.log(topMovies);
+
+  return (
+    <div className="container">
+      <h2 className="title">Melhores filmes:</h2>
+      <div className="movies-container">
+        {topMovies.length > 0 &&
+          topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      </div>
+    </div>
+  );
+};
 
 export default Home;
