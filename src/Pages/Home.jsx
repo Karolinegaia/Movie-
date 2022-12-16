@@ -1,21 +1,21 @@
 import { useState, UseEffect } from "react"
 import MovieCard from "../Components/MovieCard"
 
-const movieURL = import.meta.env.VITE_API
-const apiKey = import.meta.env.VITE_API_KEY
+const movieURL = import.meta.env.VITE_API;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 
 const Home = () => {
-    const [TopMovie, setTopMovie] = useState([])
-    const getTopRateMovie = async (url) => {
+    const [TopMovies, setTopMovies] = useState([])
+    const getTopRatedMovies = async (url) => {
         const res = await fetch(url);
         const data = await res.json
 
-        setTopMovie(data.results);
+        setTopMovies(data.results);
     };
     UseEffect(()=> {
         const topRateUrl = `${movieURL}top_rated?${apiKey}`;
-        getTopRateMovie(topRateUrl);
+        getTopRatedMovies(topRateUrl);
 
     }, [])
     
@@ -25,8 +25,8 @@ const Home = () => {
                 Melhores Filmes            
             </h2>
             <div className="div-container">
-                {TopMovie.length === 0 && <p>Carregando</p> }
-                {TopMovie.length > 0 && TopMovie.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
+                {TopMovies.length === 0 && <p>Carregando</p> }
+                {TopMovies.length > 0 && TopMovies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
         </div>
     )

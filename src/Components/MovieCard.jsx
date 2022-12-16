@@ -1,7 +1,7 @@
 import {FaStar} from "react-icons/fa"
 import { Link } from "react-router-dom";
 
-const imageURL = import.meta.env.VITE_IMG
+const imageURL = import.meta.env.VITE_IMG;
 
 const MovieCard = ({movie, showLink = true}) => {
     return (
